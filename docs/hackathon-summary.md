@@ -18,31 +18,19 @@ Main PartyId:
 cylus::1220d132f3521c48c4f39bb74e1ee3dc562f95355ab994f6369ba1fb52875a408d50
 ```
 
-PreApproval is active for all saved parties:
+PreApproval is active for the saved party:
 
 - `cylus`
-- `steve`
-- `lark`
-- `rin`
-- `codex-lab-20260628`
 
 Latest balances:
 
 - `cylus`: 25 DevNet CC
-- `steve`: 25 DevNet CC
-- `lark`: 25 DevNet CC
-- `rin`: 25 DevNet CC
-- `codex-lab-20260628`: 50 DevNet CC
 
 ## Local Files
 
 Private key files:
 
 - `cylus-party.json`
-- `steve-party.json`
-- `lark-party.json`
-- `rin-party.json`
-- `codex-lab-party.json`
 
 These files must stay local.
 

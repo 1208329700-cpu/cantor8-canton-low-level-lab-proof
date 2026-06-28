@@ -656,7 +656,7 @@ async function main() {
   }
 
   if (command === "create-external-party") {
-    const partyHint = process.argv[3] ?? `codex-lab-${new Date().toISOString().replace(/[-:.TZ]/g, "").slice(0, 14)}`;
+    const partyHint = process.argv[3] ?? `lab-party-${new Date().toISOString().replace(/[-:.TZ]/g, "").slice(0, 14)}`;
     const keyInfo = generateEd25519();
     const result = await createExternalParty({ partyHint, accessToken, keyInfo });
     const output = {
@@ -683,8 +683,8 @@ async function main() {
   }
 
   if (command === "create-setup-proposal") {
-    const partyPath = process.argv[3] ?? ".\\codex-lab-party.json";
-    const outPath = process.argv[4] ?? ".\\codex-lab-proposal.json";
+    const partyPath = process.argv[3] ?? ".\\lab-party.json";
+    const outPath = process.argv[4] ?? ".\\lab-proposal.json";
     const partyInfo = JSON.parse(await fs.readFile(partyPath, "utf8"));
     const result = await createSetupProposal({ accessToken, partyId: partyInfo.party_id });
     await fs.writeFile(outPath, JSON.stringify(result, null, 2));
@@ -702,7 +702,7 @@ async function main() {
 
   if (command === "tap-validator") {
     const amount = Number(process.argv[3] ?? "10");
-    const outPath = process.argv[4] ?? ".\\codex-lab-validator-tap.json";
+    const outPath = process.argv[4] ?? ".\\validator-tap.json";
     const result = await tapValidator({ accessToken, amount });
     await fs.writeFile(outPath, JSON.stringify(result, null, 2));
     console.log(JSON.stringify({
@@ -716,9 +716,9 @@ async function main() {
   }
 
   if (command === "tap-party") {
-    const partyPath = process.argv[3] ?? ".\\codex-lab-party.json";
+    const partyPath = process.argv[3] ?? ".\\lab-party.json";
     const amount = Number(process.argv[4] ?? "25");
-    const outPath = process.argv[5] ?? ".\\codex-lab-party-tap.json";
+    const outPath = process.argv[5] ?? ".\\lab-party-tap.json";
     const partyInfo = JSON.parse(await fs.readFile(partyPath, "utf8"));
     const result = await tapExternalParty({ accessToken, partyInfo, amount });
     await fs.writeFile(outPath, JSON.stringify(result, null, 2));
@@ -734,9 +734,9 @@ async function main() {
   }
 
   if (command === "accept-setup-proposal") {
-    const partyPath = process.argv[3] ?? ".\\codex-lab-party.json";
-    const proposalPath = process.argv[4] ?? ".\\codex-lab-proposal.json";
-    const outPath = process.argv[5] ?? ".\\codex-lab-preapproval.json";
+    const partyPath = process.argv[3] ?? ".\\lab-party.json";
+    const proposalPath = process.argv[4] ?? ".\\lab-proposal.json";
+    const outPath = process.argv[5] ?? ".\\lab-preapproval.json";
     const partyInfo = JSON.parse(await fs.readFile(partyPath, "utf8"));
     const proposalInfo = JSON.parse(await fs.readFile(proposalPath, "utf8"));
     const result = await acceptSetupProposal({
@@ -756,8 +756,8 @@ async function main() {
   }
 
   if (command === "check-acs") {
-    const partyPath = process.argv[3] ?? ".\\codex-lab-party.json";
-    const outPath = process.argv[4] ?? ".\\codex-lab-acs.json";
+    const partyPath = process.argv[3] ?? ".\\lab-party.json";
+    const outPath = process.argv[4] ?? ".\\lab-acs.json";
     const partyInfo = JSON.parse(await fs.readFile(partyPath, "utf8"));
     const context = await getNetworkContext(accessToken);
     const amuletPackageId = context.amuletRules.contract.template_id.split(":")[0];
