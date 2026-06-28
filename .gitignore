@@ -1,0 +1,27 @@
+# Secrets and local credentials
+.env
+*-party.json
+
+# Canton DevNet run artifacts
+*-proposal.json
+*-preapproval.json
+*-acs.json
+*-tap.json
+*-tap-*.json
+*-validator-tap.json
+
+# Downloaded API/source references used during the lab
+ledger-openapi.json
+validator-internal.yaml
+Amulet.daml
+AmuletConfig.daml
+AmuletRules.daml
+TransferPreapproval.daml
+HoldingV1.daml
+*.proto
+
+# Node/local clutter
+node_modules/
+npm-debug.log*
+.DS_Store
+Thumbs.db

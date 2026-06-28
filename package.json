@@ -1,0 +1,15 @@
+{
+  "name": "canton-low-level-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Low-level Canton DevNet lab scripts for party topology, transfer preapproval, faucet minting, and ACS checks.",
+  "scripts": {
+    "check": "node --check canton_lab.mjs",
+    "whoami": "node canton_lab.mjs whoami",
+    "version": "node canton_lab.mjs version"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
